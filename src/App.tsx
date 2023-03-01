@@ -1,13 +1,14 @@
 import { Header } from "./components/layouts/header/header";
+import { Sidebar } from "./components/layouts/sidebar";
 
 export const App: React.FC = () => {
   return (
     <>
-     <Header />
-     <div className="flex">
-      <div className="bg-[#fafafa] h-screen">sidebar</div>
-      <main className="bg-[#fff] h-screen">content</main>
-     </div>
+      <Header />
+      <div className="flex">
+        <Sidebar />
+        <main className="bg-[#fff] h-screen">content</main>
+      </div>
     </>
   );
 };
