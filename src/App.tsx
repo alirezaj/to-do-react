@@ -1,7 +1,13 @@
+import { Header } from "./components/layouts/header/header";
+
 export const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <>
+     <Header />
+     <div className="flex">
+      <div className="bg-[#fafafa] h-screen">sidebar</div>
+      <main className="bg-[#fff] h-screen">content</main>
+     </div>
+    </>
   );
 };
