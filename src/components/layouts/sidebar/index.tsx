@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import { IoTodayOutline, IoCalendarOutline, IoGridOutline, IoFileTrayOutline } from "react-icons/io5";
+import { SidebarMenuContext } from "../../../context/side-menu";
 
 export const Sidebar = () => {
+  const { isSidebarMenuOpen } = useContext(SidebarMenuContext);
+  console.log('isSidebarMenuOpen', isSidebarMenuOpen);
+
+  if(!isSidebarMenuOpen) return null
+  
   return (
     <div className="bg-[#fafafa] h-screen pt-8 px-3 w-56">
       <div className="flex flex-col gap-1 text-sm">

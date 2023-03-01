@@ -7,8 +7,11 @@ import {
   IoNotificationsOutline,
   IoPersonOutline,
 } from "react-icons/io5";
+import { useSidebarMenuContext } from "../../../context/side-menu";
 
 export const Header: React.FC = () => {
+  const { toggleSidebarMenu } = useSidebarMenuContext();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [isInputActive, setIsInputActive] = useState(false);
 
@@ -33,11 +36,18 @@ export const Header: React.FC = () => {
     setSearchTerm(e.currentTarget.value);
   };
 
+  const sidebarToggleHandler = () => {
+    toggleSidebarMenu();
+  };
+
   return (
     <nav className="py-2.5 px-4 bg-extend-header text-white">
       <div className="flex justify-between items-center min:w-full">
         <div className="flex justify-start items-center w-1/2 gap-x-2">
-          <button className="p-1 hover:bg-extend-search hover:rounded-sm">
+          <button
+            className="p-1 hover:bg-extend-search hover:rounded-sm"
+            onClick={sidebarToggleHandler}
+          >
             <IoMenuOutline className="w-6 h-6" />
           </button>
           <button className="p-1 hover:bg-extend-search hover:rounded-sm">

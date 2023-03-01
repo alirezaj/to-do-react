@@ -1,13 +1,17 @@
 import React, { createContext, useState } from "react";
 
-const initialState = {
-  isSidebarMenuOpen: false,
+export type SidebarMenuType = {
+  isSidebarMenuOpen: boolean,
 };
 
-const SidebarMenuContext = createContext(initialState);
+interface ContextProviderProps {
+  children: React.ReactNode;
+}
 
-const useSidebarMenuContext = () => {
-  const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
+export const SidebarMenuContext = createContext<SidebarMenuType>({isSidebarMenuOpen: true});
+
+export const useSidebarMenuContext = () => {
+  const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(true);
 
   const toggleSidebarMenu = () => {
     setIsSidebarMenuOpen(!isSidebarMenuOpen);
@@ -19,10 +23,8 @@ const useSidebarMenuContext = () => {
   };
 };
 
-export const SidebarMenuContextProvider = ({
+export const SidebarMenuContextProvider: React.FC<ContextProviderProps> = ({
   children,
-}: {
-  children: React.ReactElement;
 }) => {
   const { isSidebarMenuOpen } = useSidebarMenuContext();
 
