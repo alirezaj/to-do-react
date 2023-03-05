@@ -1,36 +1,27 @@
 import React, { createContext, useState } from "react";
+import {
+  ContextProviderModel,
+  SidebarMenuModel,
+} from "../../models/menu.model";
 
-export type SidebarMenuType = {
-  isSidebarMenuOpen: boolean,
-};
+export const SidebarMenuContext = createContext<SidebarMenuModel | null>(null);
 
-interface ContextProviderProps {
-  children: React.ReactNode;
-}
-
-export const SidebarMenuContext = createContext<SidebarMenuType>({isSidebarMenuOpen: true});
-
-export const useSidebarMenuContext = () => {
+const SidebarMenuContextProvider: React.FC<ContextProviderModel> = ({
+  children,
+}) => {
   const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(true);
 
   const toggleSidebarMenu = () => {
-    setIsSidebarMenuOpen(!isSidebarMenuOpen);
+    setIsSidebarMenuOpen((prevSatate) => !prevSatate);
   };
-
-  return {
-    toggleSidebarMenu,
-    isSidebarMenuOpen,
-  };
-};
-
-export const SidebarMenuContextProvider: React.FC<ContextProviderProps> = ({
-  children,
-}) => {
-  const { isSidebarMenuOpen } = useSidebarMenuContext();
 
   return (
-    <SidebarMenuContext.Provider value={{ isSidebarMenuOpen }}>
+    <SidebarMenuContext.Provider
+      value={{ isSidebarMenuOpen, toggleSidebarMenu }}
+    >
       {children}
     </SidebarMenuContext.Provider>
   );
 };
+
+export default SidebarMenuContextProvider;

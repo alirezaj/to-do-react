@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import useSidebarMenuContext from "../../../hooks/use-sidebar-menu.hook";
 import {
   IoHomeOutline,
   IoMenuOutline,
@@ -7,7 +8,6 @@ import {
   IoNotificationsOutline,
   IoPersonOutline,
 } from "react-icons/io5";
-import { useSidebarMenuContext } from "../../../context/side-menu";
 
 export const Header: React.FC = () => {
   const { toggleSidebarMenu } = useSidebarMenuContext();
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
   };
 
   const sidebarToggleHandler = () => {
-    toggleSidebarMenu();
+    toggleSidebarMenu()
   };
 
   return (
