@@ -4,11 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        extend: {
-          header: '#db4c3f',
-          search: 'hsla(0,0%,100%,.2)'
-        }
-      }
+        header: "#db4c3f",
+        search: "hsla(0,0%,100%,.2)",
+      },
+      spacing: {
+        navbar: "52px",
+      },
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ export const App: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="flex">
+      <div className="flex flex-grow w-full mt-navbar fixed">
         <div
           className={`bg-[#fafafa] h-screen pt-8 px-3 w-[250px] fixed ${
             isSidebarMenuOpen ? "left-0" : "left-[-9999px]"

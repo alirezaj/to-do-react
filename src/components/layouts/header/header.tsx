@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <nav className="py-2.5 px-4 bg-extend-header text-white">
+    <nav className="py-2.5 px-4 bg-header text-white fixed w-full h-navbar">
       <div className="flex justify-between items-center min:w-full">
         <div className="flex justify-start items-center w-1/2 gap-x-2">
           <button
@@ -56,17 +56,17 @@ export const Header: React.FC = () => {
           <div
             className={`flex items-center hover:text-gray-700 ${
               isInputActive && "text-gray-700 grow-[.5]"
-            } transition duration-200`}
+            } transition-all duration-200`}
           >
             <IoSearchOutline className="w-7 h-5 absolute" />
             <input
               type="text"
               name="search"
               id="search"
-              className={`px-2 pl-7 h-8 rounded-sm bg-extend-search placeholder:text-white border-1 border-transparent outline-none hover:bg-white  hover:placeholder:text-gray-400 ${
+              className={`px-2 pl-7 h-8 rounded-sm bg-search placeholder:text-white border-1 border-transparent outline-none hover:bg-white  hover:placeholder:text-gray-400 ${
                 isInputActive &&
                 "focus:bg-white focus:text-black placeholder:text-gray-400 w-full"
-              } transition duration-200 ease-in-out`}
+              } transition-all duration-200 ease-in`}
               onFocus={onFocusHandler}
               onBlur={onBlurHandler}
               placeholder="Search"

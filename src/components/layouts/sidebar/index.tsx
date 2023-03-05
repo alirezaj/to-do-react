@@ -1,4 +1,3 @@
-import useSidebarMenuContext from "../../../hooks/use-sidebar-menu.hook";
 import {
   IoTodayOutline,
   IoCalendarOutline,
