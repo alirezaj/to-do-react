@@ -18,8 +18,8 @@ export const ToolsMenu: React.FC<ToolsMenuProps> = ({ isMenuVisible, closeModal 
 
   return (
     <>
-      <div className="w-full h-full absolute left-0 top-0" onClick={() => closeModal(false)}></div>
-      <div className="flex flex-col w-56 absolute -translate-x-2/4 rounded-sm mt-1">
+      <div className="w-screen h-screen fixed left-0 top-0 z-[99999]" onClick={() => closeModal(false)}></div>
+      <div className="flex flex-col w-56 absolute bg-white -translate-x-2/4 rounded-sm mt-1 z-[100000]">
         <ul className="flex flex-col items-center shadow-menu py-2 w-full">
           <li className="flex items-center hover:bg-[#eee] hover:rounded-sm w-full p-1 gap-x-2">
             <span>
