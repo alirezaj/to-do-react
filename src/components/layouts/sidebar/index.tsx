@@ -6,19 +6,20 @@ import {
   IoAddOutline,
   IoChevronBackOutline,
 } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
   return (
     <>
       <div className="flex flex-col gap-1 text-sm">
         <button className="flex items-center hover:bg-[#eee] hover:rounded-sm p-2 gap-x-1">
-          <span className="flex justify-between items-center w-full">
+          <Link to={`inbox`} className="flex justify-between items-center w-full">
             <span className="flex">
               <IoFileTrayOutline className="w-7 h-5 text-[#246fe0]" />
               <h5>Inbox</h5>
             </span>
             <span className="text-xs text-red-600">1</span>
-          </span>
+          </Link>
         </button>
         <button className="flex items-center hover:bg-[#eee] hover:rounded-sm p-2 gap-x-1">
           <span className="flex justify-between items-center w-full">

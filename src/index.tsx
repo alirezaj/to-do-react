@@ -1,18 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
 import SidebarMenuContextProvider from "./context/side-menu";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+
 root.render(
   <React.StrictMode>
     <SidebarMenuContextProvider>
-      <App />
+      <RouterProvider router={router}  />
     </SidebarMenuContextProvider>
   </React.StrictMode>
 );

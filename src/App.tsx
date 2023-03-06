@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Header } from "./components/layouts/header/header";
 import { Sidebar } from "./components/layouts/sidebar";
 import useSidebarMenuContext from "./hooks/use-sidebar-menu.hook";
@@ -16,7 +17,11 @@ export const App: React.FC = () => {
         >
           <Sidebar />
         </div>
-        <main className={`bg-[#fff] h-screen flex-grow ${isSidebarMenuOpen ? "ml-[255px]":"ml-0"} pt-8 px-3 transition-all duration-300`}>content</main>
+        <main className={`bg-[#fff] h-screen flex-grow ${isSidebarMenuOpen ? "ml-[255px]":"ml-0"} pt-8 px-3 transition-all duration-300`}>
+          <div id="content">
+            <Outlet />
+          </div>
+        </main>
       </div>
     </>
   );
