@@ -10,6 +10,9 @@ module.exports = {
       spacing: {
         navbar: "52px",
       },
+      boxShadow: {
+        menu: '0 1px 8px 0 rgb(0 0 0 / 8%)'
+      }
     },
   },
   plugins: [],
