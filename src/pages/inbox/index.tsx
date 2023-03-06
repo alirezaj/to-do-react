@@ -1,20 +1,18 @@
+import { useState } from "react";
 import {
   IoOptions,
   IoChatboxOutline,
   IoEllipsisHorizontalOutline,
-  IoTodayOutline,
-  IoFolderOpenOutline,
-  IoCloudUploadOutline,
-  IoCloudDownloadOutline,
-  IoMailOutline,
-  IoListOutline,
-  IoCheckmarkCircleOutline,
-  IoDuplicateOutline,
-  IoCubeOutline,
 } from "react-icons/io5";
 import { ToolsMenu } from "../../components/tools-menu";
 
 export const Inbox = () => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+  const toolsMenuHandler = (flag: boolean) => {
+    setIsMenuVisible(flag);
+  };
+
   return (
     <div className="m-auto w-2/3">
       <div className="flex w-full justify-between items-center">
@@ -39,8 +37,11 @@ export const Inbox = () => {
             </span>
           </button>
           <button className="hover:bg-[#eee] text-gray-500 hover:rounded-sm p-1">
-            <IoEllipsisHorizontalOutline className="w-5 h-5" />
-            <ToolsMenu />
+            <IoEllipsisHorizontalOutline
+              className="w-5 h-5"
+              onClick={() => toolsMenuHandler(true)}
+            />
+            <ToolsMenu isMenuVisible={isMenuVisible} closeModal={toolsMenuHandler} />
           </button>
         </div>
       </div>
