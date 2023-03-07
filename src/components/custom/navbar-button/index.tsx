@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 export type NavbarButtonType = {
   children: React.ReactNode;
   onClickHandler?: () => void;

@@ -24,6 +24,7 @@ export const NavbarInputSearch = () => {
     e.preventDefault();
     setSearchTerm(e.currentTarget.value);
   };
+  
   return (
     <input
       type="text"
