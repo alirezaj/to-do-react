@@ -1,10 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "./components/layouts/header/header";
 import { Sidebar } from "./components/layouts/sidebar";
 import useSidebarMenuContext from "./hooks/use-sidebar-menu.hook";
 
 export const App: React.FC = () => {
   const { isSidebarMenuOpen } = useSidebarMenuContext();
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [navigate, user]);
 
   return (
     <>
@@ -17,7 +26,11 @@ export const App: React.FC = () => {
         >
           <Sidebar />
         </div>
-        <main className={`bg-[#fff] h-screen flex-grow ${isSidebarMenuOpen ? "ml-[255px]":"ml-0"} pt-8 px-3 transition-all duration-300`}>
+        <main
+          className={`bg-[#fff] h-screen flex-grow ${
+            isSidebarMenuOpen ? "ml-[255px]" : "ml-0"
+          } pt-8 px-3 transition-all duration-300`}
+        >
           <div id="content">
             <Outlet />
           </div>

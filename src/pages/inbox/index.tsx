@@ -36,11 +36,11 @@ export const Inbox = () => {
               <h3 className="text-sm capitalize">comments</h3>
             </span>
           </button>
-          <button
-            className="hover:bg-[#eee] text-gray-500 hover:rounded-sm p-1"
-            
-          >
-            <IoEllipsisHorizontalOutline className="w-5 h-5" onClick={() => toolsMenuHandler(true)}/>
+          <button className="hover:bg-[#eee] text-gray-500 hover:rounded-sm p-1">
+            <IoEllipsisHorizontalOutline
+              className="w-5 h-5"
+              onClick={() => toolsMenuHandler(true)}
+            />
             <ToolsMenu
               isMenuVisible={isMenuVisible}
               closeModal={toolsMenuHandler}
