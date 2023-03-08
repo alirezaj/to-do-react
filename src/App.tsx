@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "./components/layouts/header/header";
 import { Sidebar } from "./components/layouts/sidebar";
@@ -6,14 +6,14 @@ import useSidebarMenuContext from "./hooks/use-sidebar-menu.hook";
 
 export const App: React.FC = () => {
   const { isSidebarMenuOpen } = useSidebarMenuContext();
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const user = localStorage.getItem("user");
     if (!user) {
       navigate("/login");
     }
-  }, [navigate, user]);
+  }, [navigate]);
 
   return (
     <>

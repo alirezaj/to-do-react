@@ -1,6 +1,36 @@
+import { useState, useEffect } from "react";
 import { IoLogoApple, IoLogoFacebook, IoLogoGoogle } from "react-icons/io5";
+import { AuthModel } from "../../models/auth.model";
+import { useNavigate } from "react-router-dom";
+import { fetchUser } from "../../helpers/fetchUser";
 
 export const Login = () => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget.value);
+    setEmail(e.currentTarget.value);
+  };
+
+  const loginUser = async () => {
+    setIsLoading(true);
+    const response = (await fetchUser(email)) as AuthModel;
+    localStorage.setItem("user", JSON.stringify(response));
+    setIsLoading(false);
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
+  };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/");
+    }
+  }, [navigate]);
+
   return (
     <div className="flex flex-col w-3/5 m-auto p-3 mt-3 gap-3">
       <div>
@@ -27,8 +57,23 @@ export const Login = () => {
         <div className="mt-3">
           <hr />
         </div>
-        <div className="mt-3">
-          <h1>login with email and password</h1>
+        <div className="flex flex-col mt-3 gap-4">
+          <div className="flex flex-col border rounded-md p-1">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="p-1 outline-none"
+              value={email}
+              onChange={onChangeHandler}
+            />
+          </div>
+          <button
+            className="bg-header text-white capitalize p-3 rounded-md"
+            onClick={loginUser}
+          >
+            {isLoading ? "loading..." : "log in"}
+          </button>
         </div>
       </div>
     </div>
